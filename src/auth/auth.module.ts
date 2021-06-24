@@ -7,6 +7,9 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
 import { JwtStrategyService } from './jwt-strategy.service';
+import { SessionSerializer } from './session.serializer';
+import { RolesGuard } from './roles.guard';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -21,6 +24,11 @@ import { JwtStrategyService } from './jwt-strategy.service';
     UsersService,
     LocalStrategyService,
     JwtStrategyService,
+    {
+      provide: APP_GUARD,
+      useClass: RolesGuard,
+    },
+    SessionSerializer,
   ],
   controllers: [AuthController],
   exports: [AuthService],

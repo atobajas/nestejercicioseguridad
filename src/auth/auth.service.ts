@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { JwtService } from '@nestjs/jwt';
@@ -16,11 +17,13 @@ export class AuthService {
     }
     return null;
   }
+
   async login(user: any) {
-    // generamos el token
-    const payload = { username: user.username, sub: user.userId };
-    return {
-      access_token: this.jwtService.sign(payload),
+    const payload = {
+      username: user.username,
+      sub: user.userId,
+      roles: user.roles,
     };
+    return { access_token: this.jwtService.sign(payload), payload: payload };
   }
 }

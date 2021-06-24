@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 
 export type User = any;
@@ -10,11 +11,13 @@ export class UsersService {
         userId: 1,
         username: 'john',
         password: 'changeme',
+        roles: ['admin'],
       },
       {
         userId: 2,
-        username: 'antonio',
-        password: 'changeme',
+        username: 'maria',
+        password: 'guess',
+        roles: ['user'],
       },
     ];
   }
