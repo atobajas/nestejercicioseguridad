@@ -7,11 +7,11 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { AuthService } from './auth.service';
-import { AuthenticatedGuard } from './authenticated.guard';
-import { LoginGuard } from './login.guard';
-import { Role } from './role.enum';
-import { Roles } from './roles.decorator';
+import { AuthService } from '../services/auth.service';
+import { AuthenticatedGuard } from '../guards/authenticated.guard';
+import { LoginGuard } from '../guards/login.guard';
+import { Role } from '../role.enum';
+import { Roles } from '../roles.decorator';
 
 @Controller()
 export class AuthController {
@@ -40,12 +40,12 @@ export class AuthController {
     return 'logueado';
   }
 
-  @Get('roles')
   @UseGuards(AuthGuard('jwt'))
   @UseGuards(AuthenticatedGuard)
   @Roles(Role.Admin)
+  @Get('roles')
   getRole(@Request() req) {
-    //return req.user.roles;
-    return 'roleado como Admin';
+    //console.log('logueado como Admin');
+    return req.user.username;
   }
 }

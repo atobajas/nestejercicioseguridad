@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { AuthController } from './auth.controller';
-import { UsersService } from './users.service';
-import { LocalStrategyService } from './local-strategy.service';
+import { AuthService } from './services/auth.service';
+import { AuthController } from './controllers/auth.controller';
+import { UsersService } from './services/users.service';
+import { LocalStrategyService } from './strategies/local-strategy.service';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
-import { JwtStrategyService } from './jwt-strategy.service';
+import { JwtStrategyService } from './strategies/jwt-strategy.service';
 import { SessionSerializer } from './session.serializer';
-import { RolesGuard } from './roles.guard';
+import { RolesGuard } from './guards/roles.guard';
 import { APP_GUARD } from '@nestjs/core';
 
 @Module({
