@@ -1,5 +1,14 @@
-import { Controller, Get, Session, Response, Request } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Session,
+  Response,
+  Request,
+  Body,
+} from '@nestjs/common';
 import { AppService } from './app.service';
+import { EjemploDto } from './ejemplo-dto';
 
 @Controller()
 export class AppController {
@@ -33,5 +42,9 @@ export class AppController {
     console.log(request.cookies['clave']);
     // para conseguir las firmadas
     console.log(request.signedCookies);
+  }
+  @Post('swagger')
+  async create(@Body() createDto: EjemploDto) {
+    return `This action adds a new object with name: ${createDto.name}`;
   }
 }
