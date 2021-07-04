@@ -23,7 +23,6 @@
   "dependencies": {
     "@nestjs/common": "^7.6.15",
     "@nestjs/core": "^7.6.15",
-    "@nestjs/graphql": "^7.11.0",
     "@nestjs/jwt": "^7.2.0",
     "@nestjs/passport": "^7.1.5",
     "@nestjs/platform-express": "^7.6.18",
@@ -34,8 +33,6 @@
     "cookie-parser": "^1.4.5",
     "csurf": "^1.11.0",
     "express-session": "^1.17.2",
-    "graphql": "^15.5.1",
-    "graphql-tools": "^7.0.5",
     "helmet": "^4.6.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
